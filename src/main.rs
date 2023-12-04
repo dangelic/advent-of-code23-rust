@@ -4,7 +4,7 @@ use std::io::{self, BufRead};
 mod day_1;
 
 fn main() {
-    let day_number = take_terminal_input();
+    let day_number = take_terminal_input_riddle_number();
     let input_filename = format!("input/day_{}.txt", day_number);
     // Handle the Result returned by read_riddle_input_from_file
     let riddle_input = match read_riddle_input_from_file(&input_filename) {
@@ -17,13 +17,13 @@ fn main() {
 
     // Call the function dynamically based on the day_number
     match day_number {
-        1 => day_1::solve_day_1(riddle_input),
+        1 => day_1::solve_day_1(&riddle_input),
         // 2 => day_2::function(),
         _ => println!("No implementation for day {}", day_number),
     }
 }
 
-fn take_terminal_input() -> usize {
+fn take_terminal_input_riddle_number() -> usize {
     println!("Enter something:");
 
     let mut user_input = String::new();
